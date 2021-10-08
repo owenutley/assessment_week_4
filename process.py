@@ -20,21 +20,5 @@ def sales_reports(log_file):
 sales_reports(log_file)
 
 
-# ///////////////////// EXTRA CREDIT \\\\\\\\\\\\\\\\\\\\ #
 
-# I don't know why but I wasn't able to run this the way I have run python before
-# So i ran it in the bash terminal using the command python process.py
-# I don't know if it's just a vscode problem I have or if it is something in my code
-
-
-def sales_reports_10melon(log_file):
-    for line in log_file:
-        line = line.rstrip()
-        count = line[16:18]
-        count = count.rstrip()
-        if int(count) > 10:
-            print(line)
-
-
-sales_reports_10melon(log_file)
 
