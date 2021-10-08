@@ -58,3 +58,48 @@ FROM customer c JOIN employee e ON c.support_rep_id = e.employee_id;
 SELECT a.title, ar.name FROM album a
 JOIN artist ar ON a.artist_id = ar.artist_id;
 
+--//// EXTRA CREDIT \\\\--
+
+-- ARTIST TABLE --
+SELECT * FROM artist
+ORDER BY name DESC LIMIT 10;
+
+SELECT * FROM artist
+WHERE name LIKE 'Black%';
+
+SELECT * FROM artist
+WHERE name LIKE '%Black%';
+
+-- EMPLOYEE TABLE --
+
+SELECT * FROM employee
+ORDER BY birth_date DESC LIMIT 1;
+
+SELECT * FROM employee
+ORDER BY birth_date ASC LIMIT 1;
+
+-- INVOICE TABLE --
+
+SELECT COUNT(*) FROM invoice
+WHERE billing_state IN ('CA', 'TX', 'AZ');
+
+SELECT AVG(total) FROM invoice;
+
+-- JOIN QUERIES --
+
+SELECT pt.track_id FROM playlist_track pt
+JOIN playlist p ON p.playlist_id = pt.playlist_id
+WHERE p.name = 'Music';
+
+SELECT t.name FROM track t
+JOIN playlist_track pt ON t.track_id = pt.track_id
+WHERE pt.playlist_id = 5;
+
+SELECT t.name "track name", p.name "playlist name" FROM track t
+JOIN playList_track pt ON t.track_id = pt.track_id
+JOIN playlist p ON pt.playlist_id = p.playlist_id;
+
+SELECT t.name "track name", a.title "album title" FROM track t
+JOIN album a ON t.album_id = a.album_id
+JOIN genre g ON t.genre_id = g.genre_id
+WHERE g.name = 'Alternative & Punk';
